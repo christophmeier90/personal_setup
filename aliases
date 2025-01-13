@@ -4,4 +4,12 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias t='tldr'
+alias smart-pip='
+    curl -s https://pypi.org/simple/ | 
+    grep -o "simple\/.*\/" |
+    awk -F'/' "{print \$2}" |
+    fzf -m --header "Use TAB to select, SHIFT-TAB to unselect" |
+    xargs -I {} pip install {}
+'
+
+alias gpup='git push -u origin $(git branch --show-current)'

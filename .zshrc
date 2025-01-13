@@ -1,10 +1,9 @@
 #!/bin/zsh
-
-source $(dirname $0)/aliases
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+source "$SCRIPT_DIR/aliases"
 
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
-
 
 # Themes and plugins
 export ZSH="/Users/christoph.meier/.oh-my-zsh"
