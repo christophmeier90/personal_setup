@@ -1,0 +1,20 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias cat=bat
+
+alias fuvadd='
+    curl -s https://pypi.org/simple/ | 
+    grep -oP "(?<=simple/)[^/]+" |
+    awk -F'/' "{print \$2}" |
+    fzf -m --header "Use TAB to select/unselect, ENTER to install selection" --exact |
+    xargs -I {} uv add {}'
+
+
+alias fcode='
+    find . -type f -name "*.*" |
+    fzf --header "Use TAB to select/unselect, ENTER to open selection" --exact |
+    xargs -I {} code {}'
+
