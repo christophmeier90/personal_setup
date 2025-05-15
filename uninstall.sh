@@ -2,17 +2,12 @@
 
 set -e
 
-brew uninstall aerospace bat fzf jq ripgrep ruff tldr tmux uv zoxide || true
+SCRIPT_DIR="$( cd "$( dirname "${(%):-%N}" )" &>/dev/null && pwd )"
+
+stow -d $SCRIPT_DIR/dotfiles -t $HOME -D aerospace
+stow -d $SCRIPT_DIR/dotfiles -t $HOME -D powerlevel10k
+stow -d $SCRIPT_DIR/dotfiles -t $HOME -D zshrc
 
 rm -rf $HOME/.oh-my-zsh
 
-# Remove dotfiles
-rm -rf $HOME/.zshrc_personal
-rm -f $HOME/.p10k.zsh
-rm -f $HOME/.fzf.zsh
-
-# Remove personal zshrc entry from main .zshrc
-SOURCE_LINE="source $HOME/.zshrc_personal"
-sed -i '' "s#$(echo $SOURCE_LINE)# #g" $HOME/.zshrc
-
-
+brew uninstall aerospace bat fzf jq ripgrep ruff stow tldr tmux uv zoxide || true

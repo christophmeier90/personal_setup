@@ -20,4 +20,5 @@ eval "$(uvx --generate-shell-completion zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-source "$HOME/.aliases"
+source $HOME/.aliases
+source $HOME/.zshrc_ou

@@ -2,7 +2,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
 alias cat=bat
 
 alias fuvadd='
@@ -13,8 +12,17 @@ alias fuvadd='
     xargs -I {} uv add {}'
 
 
-alias fcode='
-    find . -type f -name "*.*" |
-    fzf --header "Use TAB to select/unselect, ENTER to open selection" --exact |
-    xargs -I {} code {}'
+scode() {
+  aerospace focus --window-id "$(
+    aerospace list-windows --all | awk -F'|' '
+      $2 ~ /Code/ {
+        split($3, a, "—")
+        $3 = (length(a) > 1) ? a[2] : $3
+        print $1 "|" $2 "|" $3
+      }
+    ' | \
+    fzf --delimiter='|' --with-nth=3 | \
+    awk -F'|' '{gsub(/^ +| +$/, "", $1); print $1}'
+  )"
+}
 
