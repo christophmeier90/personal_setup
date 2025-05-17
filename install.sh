@@ -9,7 +9,7 @@ if ! command -v brew &> /dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" # Homebrew
 fi
 
-brew install aerospace bat fzf jq ripgrep ruff stow tldr tmux uv zoxide
+brew install aerospace bat eza fzf jq ripgrep ruff stow tldr tmux uv zoxide
 
 # Dotfiles
 stow -d $SCRIPT_DIR/dotfiles -t $HOME aerospace

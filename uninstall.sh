@@ -10,4 +10,4 @@ stow -d $SCRIPT_DIR/dotfiles -t $HOME -D zshrc
 
 rm -rf $HOME/.oh-my-zsh
 
-brew uninstall aerospace bat fzf jq ripgrep ruff stow tldr tmux uv zoxide || true
+brew uninstall aerospace bat eza fzf jq ripgrep ruff stow tldr tmux uv zoxide || true

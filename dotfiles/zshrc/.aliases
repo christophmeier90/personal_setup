@@ -3,6 +3,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias cat=bat
+alias ls=eza
 
 alias fuvadd='
     curl -s https://pypi.org/simple/ | 
